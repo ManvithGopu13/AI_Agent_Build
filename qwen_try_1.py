@@ -1,4 +1,4 @@
-from smolagents import LiteLLMModel
+from smolagents import LiteLLMModel, DuckDuckGoSearchTool
 from smolagents import CodeAgent, HfApiModel
 
 model = LiteLLMModel(
@@ -8,9 +8,9 @@ model = LiteLLMModel(
     num_ctx=8192,
 )
 
-agent = CodeAgent(tools=[], model=model, add_base_tools=True)
+agent = CodeAgent(tools=[DuckDuckGoSearchTool()], model=model, add_base_tools=True)
 
 agent.run(
-    "Could you give me the 118th number in the Fibonacci sequence?",
+    "How many seconds would it take for a leopard at full speed to run through Pont des Arts?",
 )
 
